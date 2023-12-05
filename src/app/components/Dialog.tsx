@@ -1,6 +1,7 @@
 "use client"
 import { useSearchParams } from 'next/navigation'
 import { useRef, useEffect } from 'react'
+import TokenList from '../components/TokenList'
 
 type Props = {
     title: string,
@@ -61,8 +62,10 @@ export default function Dialog({ title, onClose, onOk, children }: Props) {
                         </div>
                     </div>  
 
-                    <div className="px-5 pb-6">
-                        {children}
+                    {/* <div className="px-5 pb-6"> */}
+                    <div className="ex1">
+                        <TokenList />
+                        {/* {children} */}
                         <div className="flex flex-row justify-end mt-2">
                             <button
                                 onClick={clickOk}
