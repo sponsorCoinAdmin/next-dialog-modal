@@ -5,12 +5,8 @@ export default function Home() {
     <>
       <h1 className="text-5xl">Home</h1>
 
-      <Link href="/products?showDialog=y" className="text-3xl underline">Go to Products with Modal</Link>
-      <Link href="/products" className="text-3xl underline">Go to Products without Modal</Link>
-
-      <Link href="/dialogTests?showDialog=y" className="text-3xl underline">Go to dialog Tests with Modal</Link>
-      <Link href="/dialogTests" className="text-3xl underline">Go to dialog Tests without Modal</Link>
-
+      <Link href="/dialogTests?showDialog=y" className="text-3xl underline">Go to dialog Tests with OPEN Modal</Link>
+      <Link href="/dialogTests?showDialog=n" className="text-3xl underline">Go to dialog Tests with HIDDEN Modal</Link>
 
     </>
   )

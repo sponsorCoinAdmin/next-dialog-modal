@@ -1,18 +1,20 @@
 'use client'
 import React from 'react'
+import './modal.css';
 
 function TokenListDialog() {
   return (
+    
     <>
       <div className="ModalButton">
         <button
-          className="tokenList-modal-button2"
+          className="bluBtn"
           onClick={() => {
               const dialog = document.querySelector("#dialogList")
               dialog.show()
           }}
         >
-         OpenDialogueModal
+         Open Token List Dialog Modal
         </button>
       </div>
     </>

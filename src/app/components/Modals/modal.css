@@ -1,0 +1,31 @@
+.tokenList-modal-button {
+  position: fixed;
+  top: 50px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  font-weight: 500px;
+  padding: 8px;
+  border-radius: 1px;
+  background-color: var(--gh-green-2);
+}
+
+
+.ModalButton {
+  display: flex;
+  justify-content: center;
+}
+
+.modalContent {
+  border-top: 1px solid #363e54;
+  /* background-color: #3b4874; */
+  /* padding-top: 20px; */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.bluBtn { @apply rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-blue-300}

@@ -5,16 +5,16 @@ import tokenList from "../resources/data/tokenEthList.json";
 import styles from '../styles/App.module.css'
 
 
-function modifyToken(obj) {
+function displayDataList(obj) {
     alert("Modifying Token Object" + JSON.stringify(obj,null,2));
   }
 
-    function TokenList() {
+    function TokenList(dataList) {
         // {alert(JSON.stringify(tokenList, null, 2))}
         const tList = tokenList?.map((e, i) => (
             <div
                 className={styles.tokenChoice}
-                onClick={() => modifyToken(tokenList[i])}
+                onClick={() => displayDataList(tokenList[i])}
             >
                 <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
 
