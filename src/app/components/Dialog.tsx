@@ -1,7 +1,7 @@
 "use client"
 import { useSearchParams } from 'next/navigation'
-import { useRef, useEffect, useState } from 'react'
-import TokenList from '../components/TokenList'
+import { useRef, useEffect, useState, ReactNode } from 'react'
+import DataList from '../components/Datalist'
 
 type ListElement = {
     ticker: string; 
@@ -14,20 +14,21 @@ type DataList = ListElement[];
 
 type Props = {
     title:    string,
+    titleName: any,
     dataList: DataList,
+    updateTitleName:  (titleName: any) => void,
     onClose:  () => void,
     onOk:     () => void,
     children: React.ReactNode,
 }
 
-export default function Dialog({ title, dataList, onClose, onOk, children }: Props) {
+// const [dialogType, setDialogType] = useState("Undefined");
 
-    // alert("dataList = " + JSON.stringify(dataList,null,2))
+export default function Dialog({ title, titleName, updateTitleName, dataList, onClose, onOk, children }: Props) {
+
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
     const showDialog = searchParams.get('showDialog')
-
-    const [title2, setTitle2] = useState(title);
 
     useEffect(() => {
         if (showDialog === 'y') {
@@ -48,18 +49,13 @@ export default function Dialog({ title, dataList, onClose, onOk, children }: Pro
         closeDialog()
     }
 
-    const showTest = () => {
-        alert("Showing Test")
-        
-    }
-
     // const dialog: JSX.Element | null = showDialog === 'y'
     //     ? (
             const dialog = (
                 <dialog id="dialogList" ref={dialogRef} className="fixed top-50 left-50 -translate-x-50 -translate-y-50 z-10  rounded-xl backdrop:bg-gray-800/50">
                 <div className="w-[450px] max-w-fullbg-gray-600 flex flex-col">
                     <div className="flex flex-row justify-between mb-1 pt-2 px-5 bg-yellow-400">
-                        <h1 className="text-2xl">{title}</h1>
+                        <h1 className="text-2xl">{titleName}</h1>
                         <button
                             onClick={closeDialog}
                             className="mb-2 py-1 px-2 cursor-pointer rounded border-none w-8 h-8 font-bold bg-red-600 text-white"
@@ -79,7 +75,7 @@ export default function Dialog({ title, dataList, onClose, onOk, children }: Pro
 
                     {/* <div className="px-5 pb-6"> */}
                     <div className="ex1">
-                        <TokenList />
+                        <DataList />
                         {/* {children} */}
                         <div className="flex flex-row justify-end mt-2">
                             <button
