@@ -1,6 +1,7 @@
 'use client'
 import  React, { ReactNode, useRef, useEffect, useState} from 'react'
 import '../../Styles/modal.css';
+import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../RecipientDlgLst';
 
 type ListElement = {
@@ -13,16 +14,13 @@ type ListElement = {
 type DataList = ListElement[];
 
 type Props = {
-  buttonName:     string,
-  dialogTitle: any,
-  dataList: DataList,
   onClose:  () => void,
   onOk:     () => void,
   children: React.ReactNode,
 }
 
     // Parent component
-    function DlgLstBtn({ buttonName, dialogTitle, dataList, onClose, onOk, children }: Props) {
+    function DlgLstBtn({ onClose, onOk, children }: Props) {
       const dialogRef = useRef<null | HTMLDialogElement>(null)
 
       const closeDialog = () => {
@@ -36,7 +34,7 @@ type Props = {
         closeDialog()
     }
  
-    const [dialogName, setDialogName] = useState(dialogTitle);
+    const [dialogName, setDialogName] = useState('Recipient List Header');
 
     //////////////// NEW STUFF
     // create a function that the child component can call
@@ -45,10 +43,8 @@ type Props = {
     }
  
   return (
-    
     <>
-
-      <Dialog dialogTitle="Token List" titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
           <div> Children Go Here </div>
       </Dialog>
 
@@ -60,7 +56,7 @@ type Props = {
                 dialog?.show()
           }}
         >
-        {dialogTitle}
+        Recipient List
         </button>
       </div>
     </>

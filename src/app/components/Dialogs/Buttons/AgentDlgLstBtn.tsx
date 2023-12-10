@@ -1,6 +1,7 @@
 'use client'
 import  React, { ReactNode, useRef, useEffect, useState} from 'react'
 import '../../Styles/modal.css';
+import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../AgentDlgLst';
 
 type ListElement = {
@@ -8,26 +9,24 @@ type ListElement = {
   img: string; 
   name: string; 
   address: string; 
-  decimals: number; }
+  decimals: number; 
+}
 
 type DataList = ListElement[];
 
 type Props = {
-  buttonName:     string,
-  dialogTitle: any,
-  dataList: DataList,
   onClose:  () => void,
   onOk:     () => void,
   children: React.ReactNode,
 }
 
     // Parent component
-    function DlgLstBtn({ buttonName, dialogTitle, dataList, onClose, onOk, children }: Props) {
-      const dialogRef = useRef<null | HTMLDialogElement>(null)
+  function DlgLstBtn({ onClose, onOk, children }: Props) {
+    const dialogRef = useRef<null | HTMLDialogElement>(null)
 
-      const closeDialog = () => {
-        dialogRef.current?.close()
-        onClose()
+    const closeDialog = () => {
+      dialogRef.current?.close()
+      onClose()
     }
     
     const clickOk = () => {
@@ -36,7 +35,8 @@ type Props = {
         closeDialog()
     }
  
-    const [dialogName, setDialogName] = useState(dialogTitle);
+    const [dialogName, setDialogName] = useState('Agent List Header');
+    const dialogTitle = 'Agent List Header';
 
     //////////////// NEW STUFF
     // create a function that the child component can call
@@ -47,8 +47,7 @@ type Props = {
   return (
     
     <>
-
-      <Dialog dialogTitle="Token List" titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog titleName={dialogTitle} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
           <div> Children Go Here </div>
       </Dialog>
 
@@ -60,7 +59,7 @@ type Props = {
                 dialog?.show()
           }}
         >
-        {dialogTitle}
+          Agent List
         </button>
       </div>
     </>

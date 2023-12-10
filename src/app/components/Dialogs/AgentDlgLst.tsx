@@ -13,7 +13,6 @@ type ListElement = {
 type DataList = ListElement[];
 
 type Props = {
-    title:    string,
     titleName: any,
     dataList: DataList,
     updateTitleName:  (titleName: any) => void,
@@ -24,7 +23,7 @@ type Props = {
 
 // const [dialogType, setDialogType] = useState("Undefined");
 
-export default function Dialog({ title, titleName, updateTitleName, dataList, onClose, onOk, children }: Props) {
+export default function Dialog({ titleName, updateTitleName, dataList, onClose, onOk, children }: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)

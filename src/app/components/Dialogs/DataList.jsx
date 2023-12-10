@@ -1,9 +1,8 @@
 import React from 'react'
 // import tokenList from "../resources/data/tokenEthList.json";
 // import styles from '../styles/App.module.css'
-import tokenList from "../resources/data/tokenEthList.json";
+import tokenList from "./Resources/data/tokenEthList.json";
 import styles from '../styles/App.module.css'
-
 
 function displayDataList(obj) {
     alert("Modifying Token Object" + JSON.stringify(obj,null,2));
