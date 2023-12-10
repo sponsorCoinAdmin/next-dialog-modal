@@ -45,7 +45,7 @@ export default function Dialog({ title, titleName, updateTitleName, dataList, on
 
     const clickOk = () => {
         onOk()
-        alert("OK was Clicked")
+        alert("Dialog.txt:OK was Clicked")
         closeDialog()
     }
 

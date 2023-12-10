@@ -32,7 +32,7 @@ type Props = {
     
     const clickOk = () => {
         onOk()
-        alert("OK was Clicked")
+        alert("DlgLstBtn.Txt: OK was Clicked")
         closeDialog()
     }
  
