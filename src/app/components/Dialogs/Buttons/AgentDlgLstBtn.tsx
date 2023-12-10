@@ -1,7 +1,7 @@
 'use client'
 import  React, { ReactNode, useRef, useEffect, useState} from 'react'
-import './modal.css';
-import Dialog from '../Dialog';
+import '../../Styles/modal.css';
+import Dialog from '../AgentDlgLst';
 
 type ListElement = {
   ticker: string; 
@@ -56,7 +56,7 @@ type Props = {
         <button
           className="bluBtn"
           onClick={() => {
-              const dialog = document.querySelector("#dialogList")
+              const dialog = document.querySelector("#AgentDialogList")
                 dialog?.show()
           }}
         >

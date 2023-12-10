@@ -1,10 +1,8 @@
 import Link from "next/link"
-import Dialog from "../components/Dialog"
-import AgentDlgLstBtn from "../components/Modals/AgentDlgLstBtn";
-import RecipientDlgLstBtn from "../components/Modals/RecipientDlgLstBtn";
-import TokenDlgLstBtn from "../components/Modals/TokenDlgLstBtn";
-import DlgDataLstBtn from "../components/Modals/DlgDataLstBtn";
-import tokenList from "../resources/data/tokenEthList.json";
+import AgentDlgLstBtn from '../components/Dialogs/Buttons/AgentDlgLstBtn'
+import RecipientDlgLstBtn from '../components/Dialogs/Buttons/RecipientDlgLstBtn'
+import DlgDataLstBtn from '../components/Dialogs/Buttons/DlgDataLstBtn'
+import tokenList from '../components/Dialogs/Resources/data/tokenEthList.json';
 
 export default function Products() {
 
@@ -19,33 +17,24 @@ export default function Products() {
     }
 
     return (
-        <>
+    <>
         
         <h1 className="text-5xl">Dialog Test</h1>
         
-        {/* <Dialog title="Token List" dataList={tokenList} onClose={onClose} onOk={onOk} >
+       <Link href="/" className="text-3xl underline">Go to Home</Link>
+
+        <AgentDlgLstBtn buttonName="Open Agent List Dialog" dialogTitle='Agent List Header' dataList={tokenList} onClose={onClose} onOk={onOk} >
             <div> Children Go Here </div>
-        </Dialog> */}
+        </AgentDlgLstBtn>
 
-        <Link href="/" className="text-3xl underline">Go to Home</Link>
+        <RecipientDlgLstBtn buttonName="Open Recipient List Dialog" dialogTitle='Recipient List Header' dataList={tokenList} onClose={onClose} onOk={onOk} >
+            <div> Children Go Here </div>
+        </RecipientDlgLstBtn>
 
-        <AgentDlgLstBtn />
-        <RecipientDlgLstBtn />
-        <TokenDlgLstBtn />
-
-
-        {/* <DlgDataLstBtn buttonName={""} titleName={undefined} dataList={[]} updateTitleName={function (titleName: any): void {
-                throw new Error("Function not implemented.");
-            } } onClose={function (): void {
-                throw new Error("Function not implemented.");
-            } } onOk={function (): void {
-                throw new Error("Function not implemented.");
-            } } children={undefined} /> */}
-
-
-        <DlgDataLstBtn buttonName="Dialog Data List Button" dialogTitle='Token List' dataList={tokenList} onClose={onClose} onOk={onOk} >
+        <DlgDataLstBtn buttonName=" Open List Dialog" dialogTitle='Token List Header' dataList={tokenList} onClose={onClose} onOk={onOk} >
             <div> Children Go Here </div>
         </DlgDataLstBtn>
-        </>
+
+    </>
     )
 }
