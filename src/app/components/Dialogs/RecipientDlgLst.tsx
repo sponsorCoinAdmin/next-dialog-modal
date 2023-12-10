@@ -44,7 +44,7 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
 
     const clickOk = () => {
         onOk()
-        alert("AgentDlgLst.txt: OK was Clicked")
+        alert("RecipientDlgLst.tsx: OK was Clicked")
         closeDialog()
     }
 

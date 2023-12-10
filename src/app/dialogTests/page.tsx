@@ -19,7 +19,6 @@ export default function Products() {
     <>
         <h1 className="text-5xl">Dialog Test</h1>
         
-        <Link href="/" className="text-3xl underline">Go to Home</Link>
 
         <AgentDlgLstBtn onClose={onClose} onOk={onOk} >
             <div> Children Go Here </div>
@@ -32,6 +31,9 @@ export default function Products() {
         <DlgDataLstBtn onClose={onClose} onOk={onOk} >
             <div> Children Go Here </div>
         </DlgDataLstBtn>
+
+        <Link href="/" className="text-3xl underline">Go to Home</Link>
+
     </>
     )
 }
