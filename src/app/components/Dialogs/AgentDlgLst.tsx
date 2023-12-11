@@ -8,7 +8,8 @@ type ListElement = {
     img: string; 
     name: string; 
     address: string; 
-    decimals: number; }
+    decimals: number;
+}
 
 type Props = {
     titleName: any,
@@ -19,7 +20,13 @@ type Props = {
     children: React.ReactNode,
 }
 
-// const [dialogType, setDialogType] = useState("Undefined");
+type DataProps = {
+    ticker: string;
+    img: string;
+    name: string;
+    address: string;
+    decimals: number;
+}
 
 export default function Dialog({ titleName, updateTitleName, dataList, onClose, onOk, children }: Props) {
 
@@ -46,6 +53,9 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
         closeDialog()
     }
 
+    function returnListElementData(listElement: DataProps) {
+        alert("Modifying Token Object FROM AgentDlgLst.tsx" + JSON.stringify(listElement,null,2));
+    }
     // const dialog: JSX.Element | null = showDialog === 'y'
     //     ? (
             const dialog = (
@@ -72,8 +82,8 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
 
                     {/* <div className="px-5 pb-6"> */}
                     <div className="ex1">
-                        <DataList dataList={dataList}/>
-                        {/* {children} */}
+                    <DataList dataList={dataList } returnListElementData={returnListElementData}/>
+                         {/* {children} */}
                         <div className="flex flex-row justify-end mt-2">
                             <button
                                 onClick={clickOk}

@@ -46,7 +46,7 @@ function DlgLstBtn({ onClose, onOk, children }: Props) {
     
     <>
 
-      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={clickOk} >
+      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
           <div> Children Go Here </div>
       </Dialog>
 

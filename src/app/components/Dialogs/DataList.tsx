@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/App.module.css'
 
-type Props = {
+type DataProps = {
     ticker: string;
     img: string;
     name: string;
@@ -9,14 +9,24 @@ type Props = {
     decimals: number;
 }
 
-function returnListElementData(listElement: Props) {
-    alert("Modifying Token Object" + JSON.stringify(listElement,null,2));
+type ListElement = {
+    ticker: string; 
+    img: string; 
+    name: string; 
+    address: string; 
+    decimals: number;
 }
 
-export default function DataList({dataList} : any) {
-// export default function DataList() {
-    alert("dataList = " + JSON.stringify(dataList,null,2));
-    const tList = dataList?.map((e: Props, i: string | number) => (
+type Props = {
+    dataList: ListElement[],
+    returnListElementData:  (listElement: DataProps) => void,
+}
+
+
+export default function DataList({dataList, returnListElementData} : Props) {
+    // alert("dataList = " + JSON.stringify(dataList,null,2));
+    
+    const tList = dataList?.map((e: ListElement, i: number) => (
         <div
             className={styles.tokenChoice}
             onClick={() => returnListElementData(dataList[i])}

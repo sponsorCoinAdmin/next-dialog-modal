@@ -18,7 +18,6 @@ export default function Products() {
     return (
     <>
         <h1 className="text-5xl">Dialog Test</h1>
-        
 
         <AgentDlgLstBtn onClose={onClose} onOk={onOk} >
             <div> Children Go Here </div>

@@ -8,7 +8,8 @@ type ListElement = {
     img: string; 
     name: string; 
     address: string; 
-    decimals: number; }
+    decimals: number;
+}
 
 type Props = {
     titleName: any,
@@ -19,7 +20,13 @@ type Props = {
     children: React.ReactNode,
 }
 
-// const [dialogType, setDialogType] = useState("Undefined");
+type DataProps = {
+    ticker: string;
+    img: string;
+    name: string;
+    address: string;
+    decimals: number;
+}
 
 export default function Dialog({ titleName, updateTitleName, dataList, onClose, onOk, children }: Props) {
 
@@ -46,10 +53,13 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
         closeDialog()
     }
 
+    function returnListElementData(listElement: DataProps) {
+        alert("Modifying Token Object FROM RecipientDlgLst.tsx" + JSON.stringify(listElement,null,2));
+    }
     // const dialog: JSX.Element | null = showDialog === 'y'
     //     ? (
-            const dialog = (
-                <dialog id="RecipientDialogList" ref={dialogRef} className="fixed top-50 left-50 -translate-x-50 -translate-y-50 z-10  rounded-xl backdrop:bg-gray-800/50">
+        const dialog = (
+            <dialog id="RecipientDialogList" ref={dialogRef} className="fixed top-50 left-50 -translate-x-50 -translate-y-50 z-10  rounded-xl backdrop:bg-gray-800/50">
                 <div className="w-[450px] max-w-fullbg-gray-600 flex flex-col">
                     <div className="flex flex-row justify-between mb-1 pt-2 px-5 bg-yellow-400">
                         <h1 className="text-2xl">{titleName}</h1>
@@ -72,7 +82,7 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
 
                     {/* <div className="px-5 pb-6"> */}
                     <div className="ex1">
-                        <DataList dataList={dataList}/>
+                    <DataList dataList={dataList } returnListElementData={returnListElementData}/>
                         {/* {children} */}
                         <div className="flex flex-row justify-end mt-2">
                             <button
