@@ -44,7 +44,7 @@ type Props = {
  
   return (
     <>
-      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={clickOk} >
           <div> Children Go Here </div>
       </Dialog>
 

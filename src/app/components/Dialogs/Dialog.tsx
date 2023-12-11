@@ -1,7 +1,7 @@
 "use client"
 import { useSearchParams } from 'next/navigation'
 import { useRef, useEffect, useState, ReactNode } from 'react'
-import DataList from './Datalist'
+import DataList from './DataList'
 
 type ListElement = {
     ticker: string; 
@@ -10,11 +10,9 @@ type ListElement = {
     address: string; 
     decimals: number; }
 
-type DataList = ListElement[];
-
 type Props = {
     titleName: any,
-    dataList: DataList,
+    dataList: ListElement[],
     updateTitleName:  (titleName: any) => void,
     onClose:  () => void,
     onOk:     () => void,
@@ -74,7 +72,8 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
 
                     {/* <div className="px-5 pb-6"> */}
                     <div className="ex1">
-                        <DataList />
+                    {/* <DataList /> */}
+                    <DataList dataList={dataList}/>
                         {/* {children} */}
                         <div className="flex flex-row justify-end mt-2">
                             <button

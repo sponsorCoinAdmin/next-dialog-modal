@@ -20,33 +20,33 @@ type Props = {
 }
 
     // Parent component
-    function DlgLstBtn({ onClose, onOk, children }: Props) {
-      const dialogRef = useRef<null | HTMLDialogElement>(null)
+function DlgLstBtn({ onClose, onOk, children }: Props) {
+  const dialogRef = useRef<null | HTMLDialogElement>(null)
 
-      const closeDialog = () => {
-        dialogRef.current?.close()
-        onClose()
-    }
-    
-    const clickOk = () => {
-        onOk()
-        alert("DlgLstBtn.Txt: OK was Clicked")
-        closeDialog()
-    }
- 
-    const [dialogName, setDialogName] = useState('Token List Header');
+  const closeDialog = () => {
+    dialogRef.current?.close()
+    onClose()
+  }
+  
+  const clickOk = () => {
+      onOk()
+      alert("DlgLstBtn.Txt: OK was Clicked")
+      closeDialog()
+  }
 
-    //////////////// NEW STUFF
-    // create a function that the child component can call
-    const updateTitleName = (titleName: any) => {
-      setDialogName(titleName);
-    }
+  const [dialogName, setDialogName] = useState('Token List Header');
+
+  //////////////// NEW STUFF
+  // create a function that the child component can call
+  const updateTitleName = (titleName: any) => {
+    setDialogName(titleName);
+  }
  
   return (
     
     <>
 
-      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={clickOk} >
           <div> Children Go Here </div>
       </Dialog>
 

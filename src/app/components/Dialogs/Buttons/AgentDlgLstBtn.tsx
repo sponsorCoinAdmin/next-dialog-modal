@@ -47,7 +47,7 @@ type Props = {
   return (
     
     <>
-      <Dialog titleName={dialogTitle} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog titleName={dialogTitle} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={clickOk} >
           <div> Children Go Here </div>
       </Dialog>
 
@@ -56,7 +56,7 @@ type Props = {
           className="bluBtn"
           onClick={() => {
               const dialog = document.querySelector("#AgentDialogList")
-                dialog?.show()
+              dialog?.show()
           }}
         >
           Agent List
