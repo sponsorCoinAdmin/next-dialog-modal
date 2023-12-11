@@ -19,17 +19,17 @@ type ListElement = {
 
 type Props = {
     dataList: ListElement[],
-    returnListElementData:  (listElement: DataProps) => void,
+    getSelectedListElement:  (listElement: DataProps) => void,
 }
 
 
-export default function DataList({dataList, returnListElementData} : Props) {
+export default function DataList({dataList, getSelectedListElement} : Props) {
     // alert("dataList = " + JSON.stringify(dataList,null,2));
     
     const tList = dataList?.map((e: ListElement, i: number) => (
         <div
             className={styles.tokenChoice}
-            onClick={() => returnListElementData(dataList[i])}
+            onClick={() => getSelectedListElement(dataList[i])}
         >
             <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
 

@@ -9,7 +9,8 @@ type ListElement = {
   img: string; 
   name: string; 
   address: string; 
-  decimals: number; }
+  decimals: number; 
+}
 
 type DataList = ListElement[];
 
@@ -19,7 +20,15 @@ type Props = {
   children: React.ReactNode,
 }
 
-    // Parent component
+type DataProps = {
+  ticker: string;
+  img: string;
+  name: string;
+  address: string;
+  decimals: number;
+}
+
+// Parent component
 function DlgLstBtn({ onClose, onOk, children }: Props) {
   const dialogRef = useRef<null | HTMLDialogElement>(null)
 
@@ -34,7 +43,11 @@ function DlgLstBtn({ onClose, onOk, children }: Props) {
       closeDialog()
   }
 
-  const [dialogName, setDialogName] = useState('Token List Header');
+  const getSelectedListElement = (listElement: DataProps) => {
+    alert("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement,null,2));
+  }
+
+  const [dialogName, setDialogName] = useState('Select a Token');
 
   //////////////// NEW STUFF
   // create a function that the child component can call
@@ -43,10 +56,15 @@ function DlgLstBtn({ onClose, onOk, children }: Props) {
   }
  
   return (
-    
     <>
-
-      <Dialog titleName={dialogName} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={onOk} >
+      <Dialog 
+        titleName={dialogName} 
+        updateTitleName={updateTitleName} 
+        dataList={dataList} 
+        onClose={onClose} 
+        onOk={clickOk}
+        getSelectedListElement={getSelectedListElement}
+      >
           <div> Children Go Here </div>
       </Dialog>
 

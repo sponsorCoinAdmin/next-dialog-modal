@@ -20,34 +20,50 @@ type Props = {
   children: React.ReactNode,
 }
 
-    // Parent component
-  function DlgLstBtn({ onClose, onOk, children }: Props) {
-    const dialogRef = useRef<null | HTMLDialogElement>(null)
+type DataProps = {
+  ticker: string;
+  img: string;
+  name: string;
+  address: string;
+  decimals: number;
+}
+// Parent component
+function DlgLstBtn({ onClose, onOk, children }: Props) {
+  const dialogRef = useRef<null | HTMLDialogElement>(null)
 
-    const closeDialog = () => {
-      dialogRef.current?.close()
-      onClose()
-    }
-    
-    const clickOk = () => {
-        onOk()
-        alert("AgentDlgLstBtn.Txt: OK was Clicked")
-        closeDialog()
-    }
- 
-    const [dialogName, setDialogName] = useState('Agent List Header');
-    const dialogTitle = 'Agent List Header';
+  const closeDialog = () => {
+    dialogRef.current?.close()
+    onClose()
+  }
+  
+  const clickOk = () => {
+      onOk()
+      alert("AgentDlgLstBtn.Txt: OK was Clicked")
+      closeDialog()
+  }
 
-    //////////////// NEW STUFF
-    // create a function that the child component can call
-    const updateTitleName = (titleName: any) => {
-      setDialogName(titleName);
-    }
+  const getSelectedListElement = (listElement: DataProps) => {
+    alert("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement,null,2));
+  }
+
+  const [dialogName, setDialogName] = useState("Recipient's Agent");
+
+  //////////////// NEW STUFF
+  // create a function that the child component can call
+  const updateTitleName = (titleName: any) => {
+    setDialogName(titleName);
+  }
  
   return (
-    
     <>
-      <Dialog titleName={dialogTitle} updateTitleName={updateTitleName} dataList={dataList} onClose={onClose} onOk={clickOk} >
+      <Dialog 
+        titleName={dialogName} 
+        updateTitleName={updateTitleName} 
+        dataList={dataList} 
+        onClose={onClose} 
+        onOk={clickOk}
+        getSelectedListElement={getSelectedListElement}
+      >
           <div> Children Go Here </div>
       </Dialog>
 
