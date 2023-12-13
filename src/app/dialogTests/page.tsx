@@ -5,26 +5,33 @@ import DlgDataLstBtn from '../components/Dialogs/Buttons/DlgDataLstBtn'
 
 export default function Products() {
 
-    async function onClose() {
+    type ListElement = {
+        ticker: string;
+        img: string;
+        name: string;
+        address: string;
+        decimals: number;
+      }
+
+    const selectedListElement = async(listElement: ListElement) => {
+        "use server"
+        console.log("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement,null,2));
+      }
+    
+      async function onClose() {
         "use server"
         console.log("Modal has closed")
-    }
-
-    async function onOk() {
-        "use server"
-        console.log("Ok was clicked")
     }
 
     return (
     <>
         <h1 className="text-5xl">Dialog Test</h1>
 
-        <AgentDlgLstBtn onClose={onClose}> <div> Children Go Here </div> </AgentDlgLstBtn>
-        <RecipientDlgLstBtn onClose={onClose}> <div> Children Go Here </div> </RecipientDlgLstBtn>
-        <DlgDataLstBtn onClose={onClose}> <div> Children Go Here </div> </DlgDataLstBtn>
+        <AgentDlgLstBtn onClose={onClose}/>
+        <RecipientDlgLstBtn onClose={onClose}/>
+        <DlgDataLstBtn selectedListElement={selectedListElement} onClose={onClose} />
 
         <Link href="/" className="text-3xl underline">Go to Home</Link>
-
     </>
     )
 }

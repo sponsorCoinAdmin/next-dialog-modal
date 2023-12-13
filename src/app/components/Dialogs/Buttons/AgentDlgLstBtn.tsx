@@ -4,22 +4,11 @@ import '../../Styles/modal.css';
 import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../AgentDlgLst';
 
-type ListElement = {
-  ticker: string; 
-  img: string; 
-  name: string; 
-  address: string; 
-  decimals: number; 
-}
-
-type DataList = ListElement[];
-
 type Props = {
   onClose:  () => void,
-  children: React.ReactNode,
 }
 
-type DataProps = {
+type ListElement = {
   ticker: string;
   img: string;
   name: string;
@@ -27,15 +16,10 @@ type DataProps = {
   decimals: number;
 }
 // Parent component
-function DlgLstBtn({ onClose, children }: Props) {
+function DlgLstBtn({ onClose }: Props) {
   const dialogRef = useRef<null | HTMLDialogElement>(null)
 
-  const closeDialog = () => {
-    dialogRef.current?.close()
-    onClose()
-  }
-
-  const getSelectedListElement = (listElement: DataProps) => {
+  const getSelectedListElement = (listElement: ListElement) => {
     alert("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement,null,2));
   }
 
@@ -47,10 +31,7 @@ function DlgLstBtn({ onClose, children }: Props) {
         titleName={dialogName} 
         dataList={dataList} 
         onClose={onClose} 
-        getSelectedListElement={getSelectedListElement}
-      >
-          <div> Children Go Here </div>
-      </Dialog>
+        getSelectedListElement={getSelectedListElement}/>
 
       <div className="ModalButton">
         <button

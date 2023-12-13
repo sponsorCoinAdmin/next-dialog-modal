@@ -1,13 +1,7 @@
 import React from 'react'
 import styles from '../styles/App.module.css'
-
-type DataProps = {
-    ticker: string;
-    img: string;
-    name: string;
-    address: string;
-    decimals: number;
-}
+import info_png from './Resources/images/info1.png'
+import Image from 'next/image'
 
 type ListElement = {
     ticker: string; 
@@ -19,25 +13,52 @@ type ListElement = {
 
 type Props = {
     dataList: ListElement[],
-    getSelectedListElement:  (listElement: DataProps) => void,
+    getSelectedListElement:  (listElement: ListElement) => void,
 }
 
-export default function DataList({dataList, getSelectedListElement} : Props) {
+function DataList({dataList, getSelectedListElement} : Props) {
     // alert("dataList = " + JSON.stringify(dataList,null,2));
     
     const tList = dataList?.map((e: ListElement, i: number) => (
-        <div
-            className={styles.tokenChoice}
-            onClick={() => getSelectedListElement(dataList[i])}
-        >
-            <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
-
-            <div className={styles.tokenChoiceNames}>
-                {/* {alert("e.name[" +i+ "] = " + e.name)} */}
-                <div className={styles.tokenName}>{e.name}</div>
-                <div className={styles.tokenTicker}>{e.ticker}</div> 
+        <>
+            <div className="flex flex-row justify-between mb-1 pt-2 px-5">
+                <div className="flex flex-row justify-between">
+                    <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
+                    <div className={styles.tokenChoiceNames}>
+                        <div className={styles.tokenName}>{e.name}</div>
+                        <div className={styles.tokenTicker}>{e.ticker}</div> 
+                    </div>
+                </div>
+                <div className="py-3 cursor-pointer rounded border-none w-8 h-8 text-lg font-bold text-white"  onClick={() => getSelectedListElement(dataList[i])}>
+                    <Image src={info_png} className={styles.infoLogo} alt="Info Image" />
+                </div>
             </div>
-        </div>)
+
+            {/* {alert("e.name[" +i+ "] = " + e.name)} */}
+            <div className={styles.tokenChoice}>
+                <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
+                <div className={styles.tokenChoiceNames}>
+                    <div className={styles.tokenName}>{e.name}</div>
+                    <div className={styles.tokenTicker}>{e.ticker}</div> 
+                </div>
+                <div className={styles.rightH} onClick={() => getSelectedListElement(dataList[i])}>
+                    <Image src={info_png} className={styles.infoLogo} alt="Info Image" />
+                </div>
+            </div>
+
+            {/* <div className={styles.tokenChoice}>
+                <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
+                <div className={styles.tokenChoiceNames}>
+                    <div className={styles.tokenName}>{e.name}</div>
+                    <div className={styles.tokenTicker}>{e.ticker}</div> 
+                </div>
+                <div className={styles.rightH} onClick={() => getSelectedListElement(dataList[i])}>
+                    <Image src={info_png} className={styles.infoLogo} alt="Info Image" />
+                </div>
+            </div> */}
+
+        </>
+        ) 
     )
     return (
         <div>
@@ -46,4 +67,4 @@ export default function DataList({dataList, getSelectedListElement} : Props) {
     )
 }
 
-// export default DataList
+export default DataList

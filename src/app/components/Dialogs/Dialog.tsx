@@ -16,19 +16,10 @@ type Props = {
     titleName: any,
     dataList: ListElement[],
     onClose:  () => void,
-    getSelectedListElement: (listElement: DataProps) => void,
-    children: React.ReactNode,
+    getSelectedListElement: (listElement: ListElement) => void,
 }
 
-type DataProps = {
-    ticker: string;
-    img: string;
-    name: string;
-    address: string;
-    decimals: number;
-}
-
-export default function Dialog({ titleName, dataList, onClose, getSelectedListElement, children }: Props) {
+export default function Dialog({ titleName, dataList, onClose, getSelectedListElement}: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
@@ -63,11 +54,8 @@ export default function Dialog({ titleName, dataList, onClose, getSelectedListEl
                     <div className="modalInputSelect">
                         <InputSelect />
                     </div>
-
-                    {/* <div className="px-5 pb-6"> */}
                     <div className="ex1">
-                        <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
-                        {/* {children} */}
+                        <DataList dataList={dataList} getSelectedListElement={getSelectedListElement}/>
                     </div>
                 </div>
             </div>
