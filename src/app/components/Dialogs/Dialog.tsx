@@ -4,10 +4,9 @@ import { useRef, useEffect, useState, ReactNode } from 'react'
 import DataList from './DataList'
 // import styles from '../Styles/Modal.module.css';
 
-// import '../Styles/modal.css';
 import searchMagGlass_png from './Resources/images/searchMagGlass.png'
 import Image from 'next/image'
-import InputSelect from './header'
+import InputSelect from './InputSelect'
 
 type ListElement = {
     ticker: string; 
@@ -63,34 +62,26 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
     // const dialog: JSX.Element | null = showDialog === 'y'
     //     ? (
     const dialog = (
-        // <dialog id="dialogList" ref={dialogRef} className="fixed top-50 left-50 -translate-x-50 -translate-y-50 z-10  rounded-xl backdrop:bg-gray-800/50">
         <dialog id="dialogList" ref={dialogRef} >
-            <div className="modalBox">
-                <div className="flex flex-row justify-between mb-1 pt-2 px-5 bg-yellow-400">
+            <div className="modalContainer">
+                <div className="flex flex-row justify-between mb-1 pt-2 px-5 text-white fg-yellow-400">
                     <h1 className="text-2xl">{titleName}</h1>
                     <button
                         onClick={closeDialog}
-                        className="mb-2 py-1 px-2 cursor-pointer rounded border-none w-8 h-8 font-bold bg-red-600 text-white"
-                    >x</button>
-                </div>
-                {/* Input */}
-                {/* .antInput */}
-                <div className="modalInputSelect">
-                    <InputSelect />
+                        className="mb-2 py-1 px-15 cursor-pointer rounded border-none w-8 h-8 text-lg font-bold text-white"
+                    >X</button>
                 </div>
 
-                {/* <div className="px-5 pb-6"> */}
-                <div className="ex1">
-                {/* <DataList /> */}
-                <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
-                    {/* {children} */}
-                    <div className="flex flex-row justify-end mt-2">
-                        <button
-                            onClick={clickOk}
-                            className="bg-green-500 py-1 px-2 rounded border-none"
-                        >
-                            OK
-                        </button>
+                <div className="modalBox">
+                    <div className="modalInputSelect">
+                        <InputSelect />
+                    </div>
+
+                    {/* <div className="px-5 pb-6"> */}
+                    <div className="ex1">
+                        {/* <DataList /> */}
+                        <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
+                        {/* {children} */}
                     </div>
                 </div>
             </div>

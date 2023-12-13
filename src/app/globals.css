@@ -32,6 +32,13 @@ div.ex1 {
   overflow: scroll;
   padding: 10px;
 
+  background-color: #243056; 
+  color: #5981F3;
+  border-width: 0px !important;
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 22px !important; 
+
 }
 
 div.ex2 {

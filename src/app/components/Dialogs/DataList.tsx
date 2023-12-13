@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../styles/App.module.css'
+import styles2 from '../styles/Modal.module.css'
 
 type DataProps = {
     ticker: string;
