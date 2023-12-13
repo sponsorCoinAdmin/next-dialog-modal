@@ -16,7 +16,6 @@ type DataList = ListElement[];
 
 type Props = {
   onClose:  () => void,
-  onOk:     () => void,
   children: React.ReactNode,
 }
 
@@ -29,18 +28,12 @@ type DataProps = {
 }
 
 // Parent component
-function DlgLstBtn({ onClose, onOk, children }: Props) {
+function DlgLstBtn({ onClose, children }: Props) {
   const dialogRef = useRef<null | HTMLDialogElement>(null)
 
   const closeDialog = () => {
     dialogRef.current?.close()
     onClose()
-  }
-  
-  const clickOk = () => {
-      onOk()
-      alert("DlgLstBtn.Txt: OK was Clicked")
-      closeDialog()
   }
 
   const getSelectedListElement = (listElement: DataProps) => {
@@ -55,6 +48,7 @@ function DlgLstBtn({ onClose, onOk, children }: Props) {
     setDialogName(titleName);
   }
  
+ 
   return (
     <>
       <Dialog 
@@ -62,7 +56,6 @@ function DlgLstBtn({ onClose, onOk, children }: Props) {
         updateTitleName={updateTitleName} 
         dataList={dataList} 
         onClose={onClose} 
-        onOk={clickOk}
         getSelectedListElement={getSelectedListElement}
       >
           <div> Children Go Here </div>

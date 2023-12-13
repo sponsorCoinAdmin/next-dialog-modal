@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../styles/App.module.css'
-import styles2 from '../styles/Modal.module.css'
 
 type DataProps = {
     ticker: string;
@@ -22,7 +21,6 @@ type Props = {
     dataList: ListElement[],
     getSelectedListElement:  (listElement: DataProps) => void,
 }
-
 
 export default function DataList({dataList, getSelectedListElement} : Props) {
     // alert("dataList = " + JSON.stringify(dataList,null,2));

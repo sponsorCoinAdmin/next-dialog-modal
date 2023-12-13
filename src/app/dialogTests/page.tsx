@@ -19,17 +19,9 @@ export default function Products() {
     <>
         <h1 className="text-5xl">Dialog Test</h1>
 
-        <AgentDlgLstBtn onClose={onClose} onOk={onOk} >
-            <div> Children Go Here </div>
-        </AgentDlgLstBtn>
-
-        <RecipientDlgLstBtn onClose={onClose} onOk={onOk} >
-            <div> Children Go Here </div>
-        </RecipientDlgLstBtn>
-
-        <DlgDataLstBtn onClose={onClose} onOk={onOk} >
-            <div> Children Go Here </div>
-        </DlgDataLstBtn>
+        <AgentDlgLstBtn onClose={onClose}> <div> Children Go Here </div> </AgentDlgLstBtn>
+        <RecipientDlgLstBtn onClose={onClose}> <div> Children Go Here </div> </RecipientDlgLstBtn>
+        <DlgDataLstBtn onClose={onClose}> <div> Children Go Here </div> </DlgDataLstBtn>
 
         <Link href="/" className="text-3xl underline">Go to Home</Link>
 

@@ -17,7 +17,6 @@ type Props = {
     dataList: ListElement[],
     updateTitleName:  (titleName: any) => void,
     onClose:  () => void,
-    onOk:     () => void,
     getSelectedListElement: (listElement: DataProps) => void,
     children: React.ReactNode,
 }
@@ -30,7 +29,7 @@ type DataProps = {
     decimals: number;
 }
 
-export default function Dialog({ titleName, updateTitleName, dataList, onClose, onOk, getSelectedListElement, children }: Props) {
+export default function Dialog({ titleName, updateTitleName, dataList, onClose, getSelectedListElement, children }: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
@@ -47,12 +46,6 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
     const closeDialog = () => {
         dialogRef.current?.close()
         onClose()
-    }
-
-    const clickOk = () => {
-        onOk()
-        alert("RecipientDlgLst.tsx: OK was Clicked")
-        closeDialog()
     }
 
     // const dialog: JSX.Element | null = showDialog === 'y'
@@ -75,7 +68,6 @@ export default function Dialog({ titleName, updateTitleName, dataList, onClose, 
     
                         {/* <div className="px-5 pb-6"> */}
                         <div className="ex1">
-                            {/* <DataList /> */}
                             <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
                             {/* {children} */}
                         </div>
