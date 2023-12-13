@@ -127,10 +127,10 @@ rounded-xl
 
 .searchImage {
   border-radius: 4px;
-  margin-top: 10px;
+  margin-bottom: 6px;
   margin-left: 10px;
-  width: 20px;
-  height:20px;
+  width: 23px;
+  height:23px;
 }
 
 .inputField { 
