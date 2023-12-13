@@ -40,18 +40,11 @@ function DlgLstBtn({ onClose, children }: Props) {
   }
 
   const [dialogName, setDialogName] = useState("Recipient's Agent");
-
-  //////////////// NEW STUFF
-  // create a function that the child component can call
-  const updateTitleName = (titleName: any) => {
-    setDialogName(titleName);
-  }
  
    return (
     <>
       <Dialog 
         titleName={dialogName} 
-        updateTitleName={updateTitleName} 
         dataList={dataList} 
         onClose={onClose} 
         getSelectedListElement={getSelectedListElement}

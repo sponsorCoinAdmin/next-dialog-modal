@@ -15,7 +15,6 @@ type ListElement = {
 type Props = {
     titleName: any,
     dataList: ListElement[],
-    updateTitleName:  (titleName: any) => void,
     onClose:  () => void,
     getSelectedListElement: (listElement: DataProps) => void,
     children: React.ReactNode,
@@ -29,7 +28,7 @@ type DataProps = {
     decimals: number;
 }
 
-export default function Dialog({ titleName, updateTitleName, dataList, onClose, getSelectedListElement, children }: Props) {
+export default function Dialog({ titleName, dataList, onClose, getSelectedListElement, children }: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
