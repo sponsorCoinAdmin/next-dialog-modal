@@ -47,11 +47,11 @@ export default function Dialog({ titleName, selectPlacement, dataList, onClose, 
     const dialog = (
         <dialog id="AgentDialogList" ref={dialogRef} >
             <div className="modalContainer">
-                <div className="flex flex-row justify-between mb-0 pt-2 px-3 text-white">
-                    <h1 className="text-sm indent-9 mt-5">{titleName}</h1>
+                <div className="flex flex-row justify-between mb-1 pt-0 px-3 text-gray-600">
+                    <h1 className="text-sm indent-9 mt-1">{titleName}</h1>
                     <button
                         onClick={closeDialog}
-                        className="cursor-pointer rounded border-none w-5 text-xl text-white"
+                        className="cursor-pointer rounded border-none w-3 text-xl text-white"
                     >X</button>
                 </div>
 
