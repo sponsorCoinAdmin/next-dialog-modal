@@ -27,8 +27,8 @@ export default function Products() {
     <>
         <h1 className="text-5xl">Dialog Test</h1>
 
-        <AgentDlgLstBtn onClose={onClose}/>
-        <RecipientDlgLstBtn onClose={onClose}/>
+        <AgentDlgLstBtn selectedListElement={selectedListElement} onClose={onClose}/>
+        <RecipientDlgLstBtn selectedListElement={selectedListElement} onClose={onClose}/>
         <DlgDataLstBtn selectedListElement={selectedListElement} onClose={onClose} />
 
         <Link href="/" className="text-3xl underline">Go to Home</Link>

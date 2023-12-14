@@ -5,6 +5,7 @@ import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../RecipientDlgLst';
 
 type Props = {
+  selectedListElement: (listElement: ListElement) => void,
   onClose:  () => void,
 }
 
@@ -17,23 +18,14 @@ type ListElement = {
 }
 
 // Parent component
-function DlgLstBtn({ onClose }: Props) {
+function DlgLstBtn({ selectedListElement, onClose }: Props) {
   const dialogRef = useRef<null | HTMLDialogElement>(null)
-
-  const getSelectedListElement = (listElement: ListElement) => {
-    alert("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement,null,2));
-  }
 
   const [dialogName, setDialogName] = useState('Sponsor a Recipient');
   
   return (
     <>
-      <Dialog 
-        titleName={dialogName} 
-        dataList={dataList} 
-        onClose={onClose} 
-        getSelectedListElement={getSelectedListElement}
-      />
+      <Dialog titleName={dialogName} dataList={dataList} onClose={onClose} selectedListElement={selectedListElement} />
 
       <div className="ModalButton">
         <button

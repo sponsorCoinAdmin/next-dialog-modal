@@ -26,8 +26,8 @@ export default function Dialog({ titleName, dataList, onClose, selectedListEleme
     const showDialog = searchParams.get('showDialog')
 
     const getSelectedListElement = (listElement: ListElement) => {
+        alert("Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
         selectedListElement(listElement);
-        alert("ZZZZZ Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
         closeDialog()
       }
 
@@ -44,9 +44,6 @@ export default function Dialog({ titleName, dataList, onClose, selectedListEleme
         onClose()
     }
 
-
-    // const dialog: JSX.Element | null = showDialog === 'y'
-    //     ? (
     const dialog = (
         <dialog id="dialogList" ref={dialogRef} >
             <div className="modalContainer">
@@ -69,6 +66,5 @@ export default function Dialog({ titleName, dataList, onClose, selectedListEleme
             </div>
         </dialog>
     )
-    // ) : null
     return dialog
 }

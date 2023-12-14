@@ -16,52 +16,56 @@ type Props = {
     titleName: any,
     dataList: ListElement[],
     onClose:  () => void,
-    getSelectedListElement: (listElement: ListElement) => void,
+    selectedListElement: (listElement: ListElement) => void,
 }
 
-export default function Dialog({ titleName, dataList, onClose, getSelectedListElement}: Props) {
+export default function Dialog({ titleName, dataList, onClose, selectedListElement}: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
     const showDialog = searchParams.get('showDialog')
 
+    const getSelectedListElement = (listElement: ListElement) => {
+        alert("Modifying Recipient Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
+        selectedListElement(listElement);
+        closeDialog()
+      }
+
     useEffect(() => {
         if (showDialog === 'y') {
             dialogRef.current?.showModal()
         } else {
-            dialogRef.current?.close()
+            closeDialog()
         }
     }, [showDialog])
 
     const closeDialog = () => {
-        closeDialog()
+        dialogRef.current?.close()
         onClose()
     }
 
-    // const dialog: JSX.Element | null = showDialog === 'y'
-    //     ? (
-        const dialog = (
-            <dialog id="RecipientDialogList" ref={dialogRef} >
-                <div className="modalContainer">
-                    <div className="flex flex-row justify-between mb-1 pt-2 px-5 text-white fg-yellow-400">
-                        <h1 className="text-2xl">{titleName}</h1>
-                        <button
-                            onClick={closeDialog}
-                            className="mb-2 py-1 px-15 cursor-pointer rounded border-none w-8 h-8 text-lg font-bold text-white"
-                        >X</button>
+    const dialog = (
+        <dialog id="RecipientDialogList" ref={dialogRef} >
+            <div className="modalContainer">
+                <div className="flex flex-row justify-between mb-1 pt-2 px-5 text-white fg-yellow-400">
+                    <h1 className="text-2xl">{titleName}</h1>
+                    <button
+                        onClick={closeDialog}
+                        className="mb-2 py-1 px-15 cursor-pointer rounded border-none w-8 h-8 text-lg font-bold text-white"
+                    >X</button>
+                </div>
+
+                <div className="modalBox">
+                    <div className="modalInputSelect">
+                        <InputSelect />
                     </div>
-    
-                    <div className="modalBox">
-                        <div className="modalInputSelect">
-                            <InputSelect />
-                        </div>
-                        <div className="ex1">
-                            <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
-                        </div>
+                    <div className="ex1">
+                        <DataList dataList={dataList } getSelectedListElement={getSelectedListElement}/>
                     </div>
                 </div>
-            </dialog>
-        )
-    
+            </div>
+        </dialog>
+    )
+
     return dialog
 }
