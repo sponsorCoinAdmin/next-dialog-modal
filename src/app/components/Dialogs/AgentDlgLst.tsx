@@ -26,7 +26,7 @@ export default function Dialog({ titleName, selectPlacement, dataList, onClose, 
     const showDialog = searchParams.get('showDialog')
 
     const getSelectedListElement = (listElement: ListElement) => {
-        alert("Modifying Agent Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
+        // alert("Modifying Agent Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
         selectedListElement(listElement);
         closeDialog()
       }

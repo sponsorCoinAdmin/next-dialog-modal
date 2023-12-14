@@ -27,7 +27,7 @@ export default function Dialog({ titleName, selectPlacement, dataList, onClose, 
     const showDialog = searchParams.get('showDialog')
 
     const getSelectedListElement = (listElement: ListElement) => {
-        alert("Modifying Recipient Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
+        // alert("Modifying Recipient Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
         selectedListElement(listElement);
         closeDialog()
       }
@@ -48,7 +48,7 @@ export default function Dialog({ titleName, selectPlacement, dataList, onClose, 
     const dialog = (
         <dialog id="RecipientDialogList" ref={dialogRef} >
             <div className="modalContainer">
-            <div className="flex flex-row justify-between mb-1 pt-0 px-3 text-gray-600">
+                <div className="flex flex-row justify-between mb-1 pt-0 px-3 text-gray-600">
                     <h1 className="text-sm indent-9 mt-1">{titleName}</h1>
                     <button
                         onClick={closeDialog}
