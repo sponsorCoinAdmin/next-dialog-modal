@@ -1,6 +1,6 @@
 'use client'
 import  React, { ReactNode, useRef, useEffect, useState} from 'react'
-import '../../Styles/modal.css';
+import '../Styles/modal.css';
 import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../AgentDlgLst';
 
