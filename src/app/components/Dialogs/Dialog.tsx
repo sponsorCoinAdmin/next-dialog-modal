@@ -16,20 +16,26 @@ type Props = {
     titleName: any,
     dataList: ListElement[],
     onClose:  () => void,
-    getSelectedListElement: (listElement: ListElement) => void,
+    selectedListElement: (listElement: ListElement) => void,
 }
 
-export default function Dialog({ titleName, dataList, onClose, getSelectedListElement}: Props) {
+export default function Dialog({ titleName, dataList, onClose, selectedListElement}: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
     const showDialog = searchParams.get('showDialog')
 
+    const getSelectedListElement = (listElement: ListElement) => {
+        selectedListElement(listElement);
+        alert("ZZZZZ Modifying Token Object FROM AgentDlgLstBtn.tsx" + JSON.stringify(listElement, null, 2));
+        closeDialog()
+      }
+
     useEffect(() => {
         if (showDialog === 'y') {
             dialogRef.current?.showModal()
         } else {
-            dialogRef.current?.close()
+            closeDialog()
         }
     }, [showDialog])
 
@@ -37,6 +43,8 @@ export default function Dialog({ titleName, dataList, onClose, getSelectedListEl
         dialogRef.current?.close()
         onClose()
     }
+
+
     // const dialog: JSX.Element | null = showDialog === 'y'
     //     ? (
     const dialog = (

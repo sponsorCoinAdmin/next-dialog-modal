@@ -34,7 +34,7 @@ export default function Dialog({ titleName, dataList, onClose, getSelectedListEl
     }, [showDialog])
 
     const closeDialog = () => {
-        dialogRef.current?.close()
+        closeDialog()
         onClose()
     }
 

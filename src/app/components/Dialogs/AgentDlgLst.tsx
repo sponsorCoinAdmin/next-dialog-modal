@@ -29,7 +29,7 @@ export default function Dialog({ titleName, dataList, onClose, getSelectedListEl
         if (showDialog === 'y') {
             dialogRef.current?.showModal()
         } else {
-            dialogRef.current?.close()
+            closeDialog()
         }
     }, [showDialog])
 
