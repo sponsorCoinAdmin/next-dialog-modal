@@ -26,7 +26,7 @@ function DataList({dataList, getSelectedListElement} : Props) {
     const tList = dataList?.map((e: ListElement, i: number) => (
         <>
             <div className="flex flex-row justify-between mb-1 pt-2 px-5 hover:bg-spCoin_Blue-900" >
-                <div className="flex flex-row justify-between" onClick={() => getSelectedListElement(dataList[i])}>
+                <div className="cursor-pointer flex flex-row justify-between" onClick={() => getSelectedListElement(dataList[i])}>
                     <img src={e.img} alt={e.ticker} className={styles.tokenLogo} />
                     <div>
                         <div className={styles.tokenName}>{e.name}</div>
