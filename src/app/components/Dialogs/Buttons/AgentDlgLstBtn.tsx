@@ -4,11 +4,6 @@ import '../../Styles/modal.css';
 import dataList from '../Resources/data/tokenEthList.json';
 import Dialog from '../AgentDlgLst';
 
-type Props = {
-  selectedListElement: (listElement: ListElement) => void,
-  onClose:  () => void,
-}
-
 type ListElement = {
   ticker: string;
   img: string;
@@ -16,15 +11,21 @@ type ListElement = {
   address: string;
   decimals: number;
 }
+
+type Props = {
+  selectedListElement: (listElement: ListElement) => void,
+  onClose:  () => void,
+}
+
+const dialogName ='Select an agent';
+const selectPlacement ='Search agent name or paste address';
+
 // Parent component
 function DlgLstBtn({ selectedListElement, onClose }: Props) {
-  const dialogRef = useRef<null | HTMLDialogElement>(null)
 
-  const [dialogName, setDialogName] = useState("Recipient's Agent");
- 
-   return (
+  return (
     <>
-      <Dialog titleName={dialogName} dataList={dataList} onClose={onClose} selectedListElement={selectedListElement}/>
+      <Dialog titleName={dialogName} selectPlacement={selectPlacement} dataList={dataList} onClose={onClose} selectedListElement={selectedListElement}/>
 
       <div className="ModalButton">
         <button

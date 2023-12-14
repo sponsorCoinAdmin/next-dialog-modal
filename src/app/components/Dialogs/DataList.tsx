@@ -13,6 +13,7 @@ type ListElement = {
 
 type Props = {
     dataList: ListElement[],
+    selectPlacement: any,
     getSelectedListElement:  (listElement: ListElement) => void,
 }
 
@@ -20,7 +21,7 @@ function displayElementDetail (le: ListElement) {
     alert("displayElementDetail\n" + JSON.stringify(le,null,2))
 }
 
-function DataList({dataList, getSelectedListElement} : Props) {
+function DataList({dataList, selectPlacement, getSelectedListElement} : Props) {
     // alert("dataList = " + JSON.stringify(dataList,null,2));
     
     const tList = dataList?.map((e: ListElement, i: number) => (
@@ -38,7 +39,7 @@ function DataList({dataList, getSelectedListElement} : Props) {
                 </div>
             </div>
         </>
-        ) 
+        )
     )
     return (
         <div>

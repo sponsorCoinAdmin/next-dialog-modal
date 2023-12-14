@@ -9,12 +9,14 @@ import searchMagGlassGrey_png from './Resources/images/searchMagGlassGrey.png'
 import Image from 'next/image'
 // import ConnectButton from "./ConnectButton";
 
-function InputSelect() {
+function InputSelect({selectPlacement}:any) {
+  // alert("selectPlacement " + selectPlacement)
+
   return (
     <div>
       <div className={styles.leftH}>
         <Image src={searchMagGlassGrey_png} className={styles.searchImage} alt="Search Image Grey" />
-        <input className={styles.modalInputSelect} placeholder="Search token Name or paste Address" />
+        <input className={styles.modalInputSelect} placeholder={selectPlacement} />
       </div>
     </div>
   );

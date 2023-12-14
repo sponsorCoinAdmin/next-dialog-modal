@@ -14,12 +14,13 @@ type ListElement = {
 
 type Props = {
     titleName: any,
+    selectPlacement: string,
     dataList: ListElement[],
     onClose:  () => void,
     selectedListElement: (listElement: ListElement) => void,
 }
 
-export default function Dialog({ titleName, dataList, onClose, selectedListElement}: Props) {
+export default function Dialog({ titleName, selectPlacement, dataList, onClose, selectedListElement}: Props) {
 
     const searchParams = useSearchParams()
     const dialogRef = useRef<null | HTMLDialogElement>(null)
@@ -47,20 +48,20 @@ export default function Dialog({ titleName, dataList, onClose, selectedListEleme
     const dialog = (
         <dialog id="dialogList" ref={dialogRef} >
             <div className="modalContainer">
-                <div className="flex flex-row justify-between mb-1 pt-2 px-5 text-white fg-yellow-400">
-                    <h1 className="text-2xl">{titleName}</h1>
+            <div className="flex flex-row justify-between mb-0 pt-2 px-3 text-white">
+                    <h1 className="text-sm indent-9">{titleName}</h1>
                     <button
                         onClick={closeDialog}
-                        className="mb-2 py-1 px-15 cursor-pointer rounded border-none w-8 h-8 text-lg font-bold text-white"
+                        className="cursor-pointer rounded border-none w-5 text-xl text-white"
                     >X</button>
                 </div>
 
                 <div className="modalBox">
                     <div className="modalInputSelect">
-                        <InputSelect />
+                        <InputSelect selectPlacement={selectPlacement}/>
                     </div>
                     <div className="ex1">
-                        <DataList dataList={dataList} getSelectedListElement={getSelectedListElement}/>
+                        <DataList dataList={dataList} selectPlacement={selectPlacement} getSelectedListElement={getSelectedListElement}/>
                     </div>
                 </div>
             </div>
