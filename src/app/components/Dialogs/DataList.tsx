@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/App.module.css'
+import styles from '../styles/Modal.module.css'
 import info_png from './Resources/images/info1.png'
 import Image from 'next/image'
 

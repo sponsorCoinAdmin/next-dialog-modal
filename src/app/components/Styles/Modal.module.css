@@ -28,14 +28,29 @@
 }
 
 
-/* 
-top-50
-left-50
--translate-x-50
--translate-y-50 z-10
-rounded-xl
-*/
+.tokenLogo {
+  height: 40px;
+  width: 40px;
+}
 
+.infoLogo {
+  height: 20px;
+  width: 20px;
+}
+
+.tokenName {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+.tokenTicker {
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: 300;
+  color: #51596f;
+}
 .modal-inner { @apply
   fixed
   rounded-xl
@@ -84,7 +99,7 @@ rounded-xl
   border-radius: 22px !important;
 }
 
-.modalContainer{
+.modalBox {
   font-weight: bold;
   width: 450px;
   background-color: #0E111B;
